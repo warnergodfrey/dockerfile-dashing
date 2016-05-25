@@ -2,6 +2,7 @@ FROM frvi/ruby
 
 MAINTAINER Fredrik Vihlborg <fredrik.wihlborg@gmail.com>
 
+RUN apt-get update && apt-get install git
 RUN gem install bundle
 COPY Gemfile /
 RUN bundle
