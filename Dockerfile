@@ -3,8 +3,10 @@ FROM frvi/ruby
 MAINTAINER Fredrik Vihlborg <fredrik.wihlborg@gmail.com>
 
 RUN gem install bundle dashing
+COPY Gemfile /
+RUN bundle
 RUN mkdir /dashing && \
-    dashing new dashing && \
+    bundle exec dashing new dashing && \
     cd /dashing && \
     bundle && \
     ln -s /dashing/dashboards /dashboards && \
